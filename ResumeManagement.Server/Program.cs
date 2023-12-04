@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using ResumeManagement.Server.Core.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// DB Configuration
+
+builder.Services.AddDbContext<ManagementContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("local"));
+});
 
 // Add services to the container.
 
