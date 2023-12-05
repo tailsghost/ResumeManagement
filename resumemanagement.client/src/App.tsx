@@ -1,16 +1,33 @@
-import { useContext } from "react";
-import { ThemeContext } from "./context/theme.context";
+import { useContext, lazy, Suspense } from "react";
+import { ThemeContext } from "./components/context/theme.context";
+import { Route, Routes } from "react-router-dom";
+
 import Navbar from "./components/navbar/Navbar.component";
+import CustomLianerLoader from "./components/CustomLinearLoader/CustomLianerLoader.component";
+
+const Home = lazy(() => import("./pages/home/Home.page"));
+const Companies = lazy(() => import("./pages/companies/Companies.page"));
 
 function App() {
   const { darkMode } = useContext(ThemeContext);
 
   const appStyles = darkMode ? "app dark" : "app";
 
-  return <div className={appStyles}>
-    <Navbar/>
-    <div className="wrapper">Навигация</div>
-  </div>;
+  return (
+    <div className={appStyles}>
+      <Navbar />
+      <div className="wrapper">
+        <Suspense fallback={<CustomLianerLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="companies">
+              <Route index element={<Companies />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </div>
+    </div>
+  );
 }
 
 export default App;
