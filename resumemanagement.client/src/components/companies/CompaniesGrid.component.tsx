@@ -9,12 +9,11 @@ const column: GridColDef[] = [
   { field: "name", headerName: "Name", width: 200 },
   { field: "size", headerName: "Size", width: 150 },
   {
-    field: "createAt",
+    field: "CreateAt",
     headerName: "Creation Time",
     width: 200,
-    renderCell: (params) => moment(params.row.createAt).format("YYYY-MM-DD"),
-  },
-  { field: "id", headerName: "Id", width: 100 },
+    renderCell: (params) => moment(params.row.CreateAt).format("YYYY-MM-DD"),
+  }
 ];
 
 interface ICompaniesGridProps {

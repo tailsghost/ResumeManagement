@@ -29,7 +29,7 @@ const AddCompany = () => {
 
     httpModule
       .post("/Company/Create", company)
-      .then((responst) => redirect("/companies"))
+      .then(() => redirect("/companies"))
       .catch((error) => console.log(error));
   };
 
