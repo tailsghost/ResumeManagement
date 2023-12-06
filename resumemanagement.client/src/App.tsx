@@ -7,6 +7,7 @@ import CustomLianerLoader from "./components/CustomLinearLoader/CustomLianerLoad
 
 const Home = lazy(() => import("./pages/home/Home.page"));
 const Companies = lazy(() => import("./pages/companies/Companies.page"));
+const AddCompany = lazy(() => import("./pages/companies/AddCompany.page"));
 
 function App() {
   const { darkMode } = useContext(ThemeContext);
@@ -20,8 +21,9 @@ function App() {
         <Suspense fallback={<CustomLianerLoader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="companies">
+            <Route path="/companies">
               <Route index element={<Companies />} />
+              <Route path="add" element={<AddCompany/>}/>
             </Route>
           </Routes>
         </Suspense>

@@ -4,3 +4,9 @@ export interface ICompany {
     size: string,
     createAt: string
 }
+
+
+export interface ICreateCompanyDto {
+    name: string,
+    size: string,
+}
