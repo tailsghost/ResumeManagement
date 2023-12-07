@@ -54,7 +54,7 @@ public class CandidateController : ControllerBase
     [Route("Get")]
     public async Task<ActionResult<IEnumerable<CandidateGetDto>>> GetCandidate()
     {
-        var candidates = await _context.Candidates.Include(x => x.Job).ToListAsync();
+        var candidates = await _context.Candidates.Include(x => x.Job).OrderByDescending(q => q.CreateAt).ToListAsync();
         var convertedCandidates = _mapper.Map<IEnumerable<CandidateGetDto>>(candidates);
 
         return Ok(convertedCandidates);

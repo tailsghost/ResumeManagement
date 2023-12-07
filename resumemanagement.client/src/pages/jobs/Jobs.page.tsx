@@ -31,13 +31,13 @@ const Jobs = () => {
 
   return <div className="content jobs">
     <div className="heading">
-      <h2>Работники</h2>
+      <h2>Вакансии</h2>
       <Button variant="outlined" onClick={() => redirect("/jobs/add")}>
         <Add/>
       </Button>
     </div>
     {
-      loading ? <CircularProgress size={100}/> : jobs.length === 0 ? <h1>Нет компаний</h1> : <JobsGrid data={jobs}/>
+      loading ? <CircularProgress size={100}/> : jobs.length === 0 ? <h1>Нет вакансий у компаний</h1> : <JobsGrid data={jobs}/>
     }
   </div>;
 };

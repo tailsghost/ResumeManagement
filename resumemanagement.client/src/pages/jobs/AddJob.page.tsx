@@ -65,10 +65,10 @@ const AddJob = () => {
   return (
     <div className="content">
       <div className="add-job">
-        <h2>Добавить нового сотрудника</h2>
+        <h2>Добавить новую вакансию</h2>
         <TextField
           autoComplete="off"
-          label="Job Name"
+          label="Название вакансии"
           variant="outlined"
           value={job.title}
           onChange={(e) => setJob({ ...job, title: e.target.value })}

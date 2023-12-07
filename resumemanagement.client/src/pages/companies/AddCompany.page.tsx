@@ -43,7 +43,7 @@ const AddCompany = () => {
         <h2>Добавить новую компанию</h2>
         <TextField
           autoComplete="off"
-          label="Company Name"
+          label="Имя компании"
           variant="outlined"
           value={company.name}
           onChange={(e) => setCompany({ ...company, name: e.target.value })}

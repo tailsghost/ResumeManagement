@@ -4,13 +4,15 @@ import { DataGrid } from "@mui/x-data-grid";
 import moment from "moment";
 import { ICompany } from "../../types/global.typing";
 
+import './companies-grid.scss'
+
 const column: GridColDef[] = [
   { field: "id", headerName: "Id", width: 100 },
-  { field: "name", headerName: "Name", width: 200 },
-  { field: "size", headerName: "Size", width: 150 },
+  { field: "name", headerName: "Имя", width: 200 },
+  { field: "size", headerName: "Размер", width: 150 },
   {
     field: "CreateAt",
-    headerName: "Creation Time",
+    headerName: "Дата добавления",
     width: 200,
     renderCell: (params) => moment(params.row.CreateAt).format("YYYY-MM-DD"),
   }
