@@ -19,6 +19,12 @@ export interface ICreateCompanyDto {
   size: string;
 }
 
+export interface IPutCompanyDto {
+  name: string;
+  size: string;
+  id: string;
+}
+
 
 export interface ICreateJobDto {
     title: string;

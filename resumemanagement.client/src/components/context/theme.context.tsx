@@ -3,11 +3,15 @@ import {createContext, useState} from "react"
 interface IThemeContextInterface {
     darkMode: boolean;
     toggleDarkMode: () => void;
+    idString: string;
+    setIdString: any;
 }
 
 export const ThemeContext = createContext<IThemeContextInterface>({
     darkMode: false,
     toggleDarkMode: () => {},
+    idString: "",
+    setIdString: ""
 });
 
 interface IThemeContextProviderProps {
@@ -21,7 +25,9 @@ const ThemeContextProvider = ({children} : IThemeContextProviderProps) => {
         setDarkMode((prevState) => !prevState);
     }
 
-    return <ThemeContext.Provider value={{darkMode, toggleDarkMode}}>
+    const [idString, setIdString] = useState<string>("")
+
+    return <ThemeContext.Provider value={{darkMode, toggleDarkMode, idString, setIdString}}>
         {children}
     </ThemeContext.Provider>
 }

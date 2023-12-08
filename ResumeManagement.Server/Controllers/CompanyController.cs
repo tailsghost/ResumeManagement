@@ -49,7 +49,34 @@ namespace ResumeManagement.Server.Controllers;
         return Ok(convertedCompanies);
     }
 
+    [HttpGet]
+    [Route("Get/{id}")]
+    public async Task<ActionResult<CompanyGetDto>> GetCompanyId(long id)
+    {
+        var company = await _context.Companies.FirstOrDefaultAsync(i => i.Id == id);
+        var convertedCompanies = _mapper.Map<CompanyGetDto>(company);
+
+        return Ok(convertedCompanies);
+    }
+
     // Update
+    [HttpPut]
+    [Route("Put")]
+    public async Task<ActionResult<CompanyPutDto>> PutCompanies([FromBody] CompanyPutDto dto)
+    {
+
+        var putCompany = _mapper.Map<Company>(dto);
+
+        if (putCompany == null)
+            return BadRequest("Company not found!");
+        if(!_context.Companies.Any(x => x.Id == putCompany.Id))
+            return NotFound();
+
+         _context.Companies.Update(putCompany);
+        await _context.SaveChangesAsync();
+
+        return Ok(putCompany);
+    }
 
     // Delete
 

@@ -14,6 +14,7 @@ public class AutoMapperConfigProfile : Profile
         // Company 
         CreateMap<CompanyCreateDto, Company>();
         CreateMap<Company, CompanyGetDto>();
+        CreateMap<CompanyPutDto, Company>();
 
         // Job
         CreateMap<JobCreateDto, Job>();
