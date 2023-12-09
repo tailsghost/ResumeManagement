@@ -2,8 +2,6 @@ import { useContext, lazy, Suspense } from "react";
 import { ThemeContext } from "./components/context/theme.context";
 import { Route, Routes } from "react-router-dom";
 
-import ThemeContextProvider from "./components/context/theme.context";
-
 import Navbar from "./components/navbar/Navbar.component";
 import CustomLianerLoader from "./components/CustomLinearLoader/CustomLianerLoader.component";
 
